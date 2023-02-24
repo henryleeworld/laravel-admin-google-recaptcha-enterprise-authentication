@@ -1,4 +1,4 @@
-# Laravel 9 後臺管理 Google reCAPTCHA Enterprise 登入
+# Laravel 10 後臺管理 Google reCAPTCHA Enterprise 登入
 
 詐欺性網站活動每年讓企業損失數十億美元，資安團隊必須將攻擊者阻絕在外，同時確保客戶可以隨時進入網站，有了 reCAPTCHA Enterprise，就能協助網站防範常見的網路式攻擊，例如憑證填充、帳戶盜用和內容抓取，也能預防惡意人士或自動化執行程式的攻擊，以免蒙受鉅額損失。
 

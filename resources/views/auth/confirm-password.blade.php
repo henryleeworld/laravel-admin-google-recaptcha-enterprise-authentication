@@ -5,7 +5,7 @@
 
     <form method="POST" action="{{ route('password.confirm') }}">
         @csrf
-
+        <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response"/>
         <!-- Password -->
         <div>
             <x-input-label for="password" :value="__('Password')" />

@@ -8,7 +8,7 @@
 
     <form method="POST" action="{{ route('password.email') }}">
         @csrf
-
+        <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response"/>
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
