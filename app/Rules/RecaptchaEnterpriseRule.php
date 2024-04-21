@@ -3,12 +3,12 @@
 namespace App\Rules;
 
 use App\Exceptions\InvalidTokenException;
-use App\Facades\RecaptchaFacade;
+use App\Facades\RecaptchaEnterpriseFacade;
 use Carbon\CarbonInterval;
 use Google\Cloud\RecaptchaEnterprise\V1\TokenProperties\InvalidReason;
 use Illuminate\Contracts\Validation\Rule;
 
-class RecaptchaRule implements Rule
+class RecaptchaEnterpriseRule implements Rule
 {
     protected ?int $reason = null;
 
@@ -27,7 +27,7 @@ class RecaptchaRule implements Rule
     public function passes($attribute, $value): bool
     {
         try {
-            $recaptcha = RecaptchaFacade::assess($value);
+            $recaptcha = RecaptchaEnterpriseFacade::assess($value);
         } catch (InvalidTokenException $exception) {
             $this->reason = $exception->reason;
 

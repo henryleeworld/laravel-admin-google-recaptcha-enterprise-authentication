@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services;
+namespace App\Http\Integrations\RecaptchaEnterprise;
 
-use App\Contracts\RecaptchaContract;
+use App\Contracts\RecaptchaEnterpriseContract;
 use App\Exceptions\InvalidTokenException;
 use App\Exceptions\MissingPropertiesException;
 use Carbon\CarbonInterval;
@@ -13,9 +13,9 @@ use Google\Cloud\RecaptchaEnterprise\V1\TokenProperties;
 use Illuminate\Support\Carbon;
 
 /**
- * @codeCoverageIgnore Handled by a mock
+ * reCAPTCHAEnterpriseConnector
  */
-class RecaptchaService implements RecaptchaContract
+class RecaptchaEnterpriseConnector implements RecaptchaEnterpriseContract
 {
     public RecaptchaClient $client;
 
@@ -36,9 +36,9 @@ class RecaptchaService implements RecaptchaContract
 
     protected static function credentials(): array
     {
-        $useCredentials = config('recaptcha.use_credentials');
+        $useCredentials = config('services.recaptcha_enterprise.use_credentials');
 
-        return data_get(config('recaptcha.credentials'), $useCredentials, []);
+        return data_get(config('services.recaptcha_enterprise.credentials'), $useCredentials, []);
     }
 
     protected function projectName(): string
@@ -48,7 +48,7 @@ class RecaptchaService implements RecaptchaContract
 
     protected function siteKey(): string
     {
-        return config('recaptcha.site_key');
+        return config('services.recaptcha_enterprise.site_key');
     }
 
     /**
@@ -100,7 +100,7 @@ class RecaptchaService implements RecaptchaContract
 
     public function validateScore(): bool
     {
-        $threshold = config('recaptcha.score_threshold');
+        $threshold = config('services.recaptcha_enterprise.score_threshold');
 
         // if no threshold is set, we assume it passes
         if ($threshold === null) {

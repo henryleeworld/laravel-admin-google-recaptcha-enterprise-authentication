@@ -2,8 +2,8 @@
 
 namespace App\Facades;
 
-use App\Contracts\RecaptchaContract;
-use App\Services\RecaptchaService;
+use App\Contracts\RecaptchaEnterpriseContract;
+use App\Http\Integrations\RecaptchaEnterprise\RecaptchaEnterpriseConnector;
 use Closure;
 use Illuminate\Support\Facades\Facade;
 
@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Facade;
  * @method static static setProperties(\Google\Cloud\RecaptchaEnterprise\V1\TokenProperties $properties)
  * @method static static forceValid(bool $value = true)
  *
- * @see RecaptchaService
+ * @see RecaptchaEnterpriseConnector
  */
-class RecaptchaFacade extends Facade
+class RecaptchaEnterpriseFacade extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return RecaptchaService::class;
+        return RecaptchaEnterpriseConnector::class;
     }
 
     /**
@@ -27,8 +27,8 @@ class RecaptchaFacade extends Facade
      * @throws \App\Exceptions\MissingPropertiesException
      * @throws \Google\ApiCore\ApiException
      */
-    public static function assess(string $token): RecaptchaContract
+    public static function assess(string $token): RecaptchaEnterpriseContract
     {
-        return app(RecaptchaService::class)->assess($token);
+        return app(RecaptchaEnterpriseConnector::class)->assess($token);
     }
 }

@@ -4,7 +4,7 @@ namespace App\Contracts;
 
 use Carbon\CarbonInterval;
 
-interface RecaptchaContract
+interface RecaptchaEnterpriseContract
 {
     /**
      * Assess the token against Google reCAPTCHA Enterprise

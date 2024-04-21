@@ -1,11 +1,10 @@
 <x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600">
+    <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
         {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
     </div>
 
     <form method="POST" action="{{ route('password.confirm') }}">
         @csrf
-        <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response"/>
         <!-- Password -->
         <div>
             <x-input-label for="password" :value="__('Password')" />
