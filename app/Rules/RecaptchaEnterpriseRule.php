@@ -12,17 +12,18 @@ class RecaptchaEnterpriseRule implements Rule
 {
     protected ?int $reason = null;
 
+    /**
+     * Constructor.
+     */
     public function __construct(public ?string $action = null, public ?CarbonInterval $interval = null)
     {
     }
 
     /**
-     * @param  string  $attribute
-     * @param  string  $value
-     * @return bool
+     * Determine if the validation rule passes.
      *
-     * @throws \App\Exceptions\MissingPropertiesException
-     * @throws \Google\ApiCore\ApiException
+     * @param  string  $attribute
+     * @param  mixed  $value
      */
     public function passes($attribute, $value): bool
     {
@@ -62,6 +63,9 @@ class RecaptchaEnterpriseRule implements Rule
         return $this;
     }
 
+    /**
+     * Get the validation error message.
+     */
     public function message(): string
     {
         return __('validation.recaptcha', [

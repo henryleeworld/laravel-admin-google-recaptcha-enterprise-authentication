@@ -8,15 +8,13 @@ use Closure;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static static setThreshold(float $threshold)
- * @method static static setScore(float $score)
- * @method static static setProperties(\Google\Cloud\RecaptchaEnterprise\V1\TokenProperties $properties)
- * @method static static forceValid(bool $value = true)
- *
- * @see RecaptchaEnterpriseConnector
+ * Recaptcha enterprise facade
  */
 class RecaptchaEnterpriseFacade extends Facade
 {
+    /**
+     * Get the registered name of the component.
+     */
     protected static function getFacadeAccessor(): string
     {
         return RecaptchaEnterpriseConnector::class;

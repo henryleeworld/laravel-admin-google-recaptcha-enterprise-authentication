@@ -18,7 +18,9 @@ class MissingPropertiesException extends Exception
     }
 
     /**
-     * @codeCoverageIgnore
+     * Get the exception's context information.
+     *
+     * @return array<string, mixed>
      */
     public function context(): array
     {

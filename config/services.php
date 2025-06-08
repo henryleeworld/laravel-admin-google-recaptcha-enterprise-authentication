@@ -24,17 +24,6 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
-    'resend' => [
-        'key' => env('RESEND_KEY'),
-    ],
-
-    'slack' => [
-        'notifications' => [
-            'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),
-            'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
-        ],
-    ],
-
     'recaptcha_enterprise' => [
         'site_key' => env('RECAPTCHA_ENTERPRISE_SITE_KEY'),
         'use_credentials' => env('RECAPTCHA_ENTERPRISE_USE_CREDENTIALS', 'default'),
@@ -52,6 +41,17 @@ return [
                 'auth_provider_x509_cert_url' => 'https://www.googleapis.com/oauth2/v1/certs',
                 'client_x509_cert_url' => 'https://www.googleapis.com/robot/v1/metadata/x509/' . $email,
             ],
+        ],
+    ],
+
+    'resend' => [
+        'key' => env('RESEND_KEY'),
+    ],
+
+    'slack' => [
+        'notifications' => [
+            'bot_user_oauth_token' => env('SLACK_BOT_USER_OAUTH_TOKEN'),
+            'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
 
